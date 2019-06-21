@@ -31,8 +31,8 @@ func InitApi() *gin.Engine {
 	store := persistence.NewInMemoryStore(time.Second)
 	fmt.Println(mdw.Domain())
 	fmt.Println("------------")
-	domainGroup := r.Group("/api/:domain", mdw.Domain())
-	//domainGroup := r.Group("/api")
+	//domainGroup := r.Group("/api/:domain", mdw.Domain())
+	domainGroup := r.Group("/api")
 	{
 		pageGrp := domainGroup.Group("/page")
 		{
