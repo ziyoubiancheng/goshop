@@ -1,6 +1,7 @@
 package router
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/gin-contrib/cache"
@@ -28,7 +29,10 @@ func InitApi() *gin.Engine {
 
 	r := mgin.Caller()
 	store := persistence.NewInMemoryStore(time.Second)
+	fmt.Println(mdw.Domain())
+	fmt.Println("------------")
 	domainGroup := r.Group("/api/:domain", mdw.Domain())
+	//domainGroup := r.Group("/api")
 	{
 		pageGrp := domainGroup.Group("/page")
 		{
